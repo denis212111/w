@@ -2,6 +2,8 @@
 # 🛠️ Общий блок команд (нужен для каждого билета)
 # ==============================================================================
 
+sudo apt install libreoffice gimp p7zip-full -y 
+
 # 1. SSH и удаленный доступ
 sudo apt update
 sudo apt install openssh-server x11vnc -y
@@ -22,7 +24,10 @@ sudo timeshift --create --comments "Backup" --yes
 # 5. Создание группы и пользователя (пароль будет просто 1)
 sudo groupadd developers
 sudo useradd -m -g developers exam_user
-echo "exam_user:1" | sudo chpasswd
+echo "exam_user:daun1daun2" | sudo chpasswd
+sudo mkdir -p /opt/project_data
+sudo chown root:developers /opt/project_data
+sudo chmod 770 /opt/project_data
 
 # 6. Обоснование и проверка параметров ядра (Пункт: "настройка параметров ОС и служб")
 # Принудительно обновляем конфигурацию sysctl, чтобы зафиксировать изменения в ядре
@@ -32,7 +37,7 @@ sudo sysctl -p --system
 # По умолчанию аудит установлен, но служба может быть выключена. Включаем её:
 sudo apt install auditd -y
 sudo systemctl enable --now auditd
-ыщвг 
+
 # 8. Демонстрация работы принтера (Пункт: "установлен виртуальный принтер")
 # Команда, которая выведет список принтеров и докажет прелоду, что PDF-принтер виден в системе
 lpstat -p -d
@@ -42,6 +47,8 @@ lpstat -p -d
 # вбей эти строки в терминал перед запуском софта, это отключит кривое масштабирование:
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
 export GDK_SCALE=1
+
+
 
 # ==============================================================================
 # 📦 Специфичные команды установки для каждого файла
