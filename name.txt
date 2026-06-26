@@ -1,9 +1,6 @@
 🛠️ Общий блок команд (нужен для каждого билета)
 Эти действия требуются по критериям оценки в каждом билете:  
 
-# 1. Настройка ядра (утилиты sysctl)
-sudo sysctl -p
-
 # 2. Настройка SSH и удаленного доступа
 sudo apt update && sudo apt install openssh-server x11vnc -y
 sudo systemctl enable --now ssh
