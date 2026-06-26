@@ -1,4 +1,7 @@
-🛠️ Общий блок команд (нужен для каждого билета)Эти действия требуются по критериям оценки в каждом билете:  Bash# 1. Настройка ядра (утилиты sysctl)
+🛠️ Общий блок команд (нужен для каждого билета)
+Эти действия требуются по критериям оценки в каждом билете:  
+
+# 1. Настройка ядра (утилиты sysctl)
 sudo sysctl -p
 
 # 2. Настройка SSH и удаленного доступа
@@ -26,7 +29,8 @@ sudo passwd exam_user
 📦 Специфичные команды установки для каждого файла
 Лабораторная работа 1: Разработка мобильных приложений (Android)
 Контекст задания: Нужна IDE для Android (Android Studio), среда с компиляторами (GCC/Clang), эмулятор 3D/ОС и антивирус/безопасность.  
-Bash# 1. Обновление системы
+
+# 1. Обновление системы
 sudo apt update && sudo apt upgrade -y
 
 # 2. Установка набора компиляторов (GCC, G++, Make)
@@ -42,7 +46,11 @@ sudo adduser $USER kvm
 # 5. Обеспечение безопасности (Антивирус ClamAV + Фаервол UFW)
 sudo apt install clamav clamav-daemon ufw -y
 sudo ufw enable
-Лабораторная работа 2: Высоконагруженные веб-сервисы (Backend)Контекст задания: IDE под Python/JS (PyCharm/VS Code), СУБД, инструмент тестирования API (Postman/Bruno), Git с GUI, защита соединений.  Bash# 1. Среда разработки (VS Code или PyCharm Professional через snap)
+
+Лабораторная работа 2: Высоконагруженные веб-сервисы (Backend)
+Контекст задания: IDE под Python/JS (PyCharm/VS Code), СУБД, инструмент тестирования API (Postman/Bruno), Git с GUI, защита соединений.
+
+# 1. Среда разработки (VS Code или PyCharm Professional через snap)
 sudo snap install code --classic
 
 # 2. Установка Git и графического интерфейса (Gitkraken или Gitg)
@@ -61,7 +69,7 @@ sudo apt install fail2ban wireshark -y
 Лабораторная работа 3: Кроссплатформенная мобильная разработка (Flutter)
 Контекст задания: IDE под Dart/Flutter, SDK, эмуляторы и защита рабочих станций.
 
-Bash# 1. Установка базовых зависимостей для Flutter SDK
+# 1. Установка базовых зависимостей для Flutter SDK
 sudo apt install curl git unzip xz-utils zip libglu1-mesa -y
 
 # 2. Установка Flutter SDK (включает Dart)
@@ -82,7 +90,7 @@ sudo ufw enable
 Лабораторная работа 4: Разработка 3D-игр (GameDev)
 Контекст задания: IDE со встроенным движком под C# (Unity + Rider/VS Code), графический API, программа для 3D моделей (Blender) и защита от сетевых атак.  
 
-Bash# 1. Установка графического API и драйверов Vulkan/OpenGL
+# 1. Установка графического API и драйверов Vulkan/OpenGL
 sudo apt install mesa-vulkan-drivers vulkan-tools -y
 
 # 2. Программа для создания 3D моделей и текстур
@@ -97,9 +105,14 @@ git lfs install
 
 # 5. Защита от эксплойтов и сетевых атак
 sudo apt install iptables-persistent -y
+
 # Настройка базовой защиты портов через UFW
 sudo ufw enable
-Лабораторная работа 5: DevOps инфраструктура (Сборка и развертывание)Контекст задания: Текстовый редактор/IDE (VS Code), контейнеризация (Docker), CI/CD платформа (Jenkins/GitLab Runner), мониторинг (Prometheus/Grafana) и аудит.  Bash# 1. Продвинутый редактор кода (VS Code)
+
+Лабораторная работа 5: DevOps инфраструктура (Сборка и развертывание)
+Контекст задания: Текстовый редактор/IDE (VS Code), контейнеризация (Docker), CI/CD платформа (Jenkins/GitLab Runner), мониторинг (Prometheus/Grafana) и аудит.  
+
+# 1. Продвинутый редактор кода (VS Code)
 sudo snap install code --classic
 
 # 2. Инструмент контейнеризации (Docker & Docker Compose)
@@ -119,7 +132,11 @@ sudo apt install prometheus-node-exporter -y
 # 5. Централизованное управление безопасностью и аудит
 sudo apt install auditd audispd-plugins -y
 sudo systemctl enable --now auditd
-Лабораторная работа 6: Кросс-платформенные настольные приложения (Desktop)Контекст задания: IDE с поддержкой JS/TS (VS Code), среда выполнения (Node.js), автоматизация сборки исполняемых файлов (Electron-builder/NW.js), менеджер паролей/защита.  Bash# 1. Среда разработки с поддержкой JS/TS
+
+Лабораторная работа 6: Кросс-платформенные настольные приложения (Desktop)
+Контекст задания: IDE с поддержкой JS/TS (VS Code), среда выполнения (Node.js), автоматизация сборки исполняемых файлов (Electron-builder/NW.js), менеджер паролей/защита.  
+
+# 1. Среда разработки с поддержкой JS/TS
 sudo snap install code --classic
 
 # 2. Среда выполнения веб-технологий на десктопе (Node.js и NPM)
