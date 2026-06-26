@@ -1,1 +1,135 @@
-hello world
+🛠️ Общий блок команд (нужен для каждого билета)Эти действия требуются по критериям оценки в каждом билете:  Bash# 1. Настройка ядра (утилиты sysctl)
+sudo sysctl -p
+
+# 2. Настройка SSH и удаленного доступа
+sudo apt update && sudo apt install openssh-server x11vnc -y
+sudo systemctl enable --now ssh
+
+# 3. Проверка интернет-соединения (вывод сетевых интерфейсов и пинг)
+ip a
+ping -c 3 google.com
+
+# 4. Установка виртуального принтера (CUPS-PDF)
+sudo apt install cups cups-pdf -y
+sudo systemctl enable --now cups
+
+# 5. Резервное копирование и точки восстановления (используем Timeshift)
+sudo apt install timeshift -y
+# Создание бэкапа в консольном режиме:
+sudo timeshift --create --comments "Exam_Backup"
+
+# 6. Создание групп пользователей и настройка прав
+sudo groupadd developers
+sudo useradd -m -g developers exam_user
+sudo passwd exam_user
+
+📦 Специфичные команды установки для каждого файла
+Лабораторная работа 1: Разработка мобильных приложений (Android)
+Контекст задания: Нужна IDE для Android (Android Studio), среда с компиляторами (GCC/Clang), эмулятор 3D/ОС и антивирус/безопасность.  
+Bash# 1. Обновление системы
+sudo apt update && sudo apt upgrade -y
+
+# 2. Установка набора компиляторов (GCC, G++, Make)
+sudo apt install build-essential clang -y
+
+# 3. Установка Android Studio (включает Android SDK и эмулятор устройств)
+sudo snap install android-studio --classic
+
+# 4. Настройка эмулятора (включение аппаратной виртуализации KVM)
+sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils -y
+sudo adduser $USER kvm
+
+# 5. Обеспечение безопасности (Антивирус ClamAV + Фаервол UFW)
+sudo apt install clamav clamav-daemon ufw -y
+sudo ufw enable
+Лабораторная работа 2: Высоконагруженные веб-сервисы (Backend)Контекст задания: IDE под Python/JS (PyCharm/VS Code), СУБД, инструмент тестирования API (Postman/Bruno), Git с GUI, защита соединений.  Bash# 1. Среда разработки (VS Code или PyCharm Professional через snap)
+sudo snap install code --classic
+
+# 2. Установка Git и графического интерфейса (Gitkraken или Gitg)
+sudo apt install git gitg -y
+
+# 3. Локальный сервер баз данных (PostgreSQL)
+sudo apt install postgresql postgresql-contrib -y
+sudo systemctl enable --now postgresql
+
+# 4. Инструмент для тестирования API (Postman)
+sudo snap install postman
+
+# 5. Мониторинг сети и защита соединений (Утилита фильтрации и анализа трафика)
+sudo apt install fail2ban wireshark -y
+
+Лабораторная работа 3: Кроссплатформенная мобильная разработка (Flutter)
+Контекст задания: IDE под Dart/Flutter, SDK, эмуляторы и защита рабочих станций.
+
+Bash# 1. Установка базовых зависимостей для Flutter SDK
+sudo apt install curl git unzip xz-utils zip libglu1-mesa -y
+
+# 2. Установка Flutter SDK (включает Dart)
+sudo snap install flutter --classic
+
+# 3. Интегрированная среда разработки (Android Studio или VS Code)
+sudo snap install android-studio --classic
+
+# 4. Инструмент визуального проектирования и утилиты
+sudo snap install figma-linux # (Или использование встроенных инструментов)
+
+# 5. Защита от вредоносного ПО и несанкционированного доступа
+sudo apt install ufw fail2ban -y
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw enable
+
+Лабораторная работа 4: Разработка 3D-игр (GameDev)
+Контекст задания: IDE со встроенным движком под C# (Unity + Rider/VS Code), графический API, программа для 3D моделей (Blender) и защита от сетевых атак.  
+
+Bash# 1. Установка графического API и драйверов Vulkan/OpenGL
+sudo apt install mesa-vulkan-drivers vulkan-tools -y
+
+# 2. Программа для создания 3D моделей и текстур
+sudo snap install blender --classic
+
+# 3. Игровой движок и IDE с поддержкой C# (Используем Unity Hub)
+sudo snap install unityhub
+
+# 4. Инструмент управления версиями ассетов (Git LFS - Large File Storage)
+sudo apt install git-lfs -y
+git lfs install
+
+# 5. Защита от эксплойтов и сетевых атак
+sudo apt install iptables-persistent -y
+# Настройка базовой защиты портов через UFW
+sudo ufw enable
+Лабораторная работа 5: DevOps инфраструктура (Сборка и развертывание)Контекст задания: Текстовый редактор/IDE (VS Code), контейнеризация (Docker), CI/CD платформа (Jenkins/GitLab Runner), мониторинг (Prometheus/Grafana) и аудит.  Bash# 1. Продвинутый редактор кода (VS Code)
+sudo snap install code --classic
+
+# 2. Инструмент контейнеризации (Docker & Docker Compose)
+sudo apt install docker.io docker-compose -y
+sudo systemctl enable --now docker
+sudo usermod -aG docker $USER
+
+# 3. Платформа автоматизации CI/CD (Локальный Jenkins)
+sudo apt install default-jre -y
+wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+sudo apt update && sudo apt install jenkins -y
+
+# 4. Система мониторинга серверов (Prometheus)
+sudo apt install prometheus-node-exporter -y
+
+# 5. Централизованное управление безопасностью и аудит
+sudo apt install auditd audispd-plugins -y
+sudo systemctl enable --now auditd
+Лабораторная работа 6: Кросс-платформенные настольные приложения (Desktop)Контекст задания: IDE с поддержкой JS/TS (VS Code), среда выполнения (Node.js), автоматизация сборки исполняемых файлов (Electron-builder/NW.js), менеджер паролей/защита.  Bash# 1. Среда разработки с поддержкой JS/TS
+sudo snap install code --classic
+
+# 2. Среда выполнения веб-технологий на десктопе (Node.js и NPM)
+sudo apt install nodejs npm -y
+
+# 3. Инструмент для автоматизации сборки пакетов (Electron / electron-builder)
+sudo npm install -g electron electron-builder
+
+# 4. Программа для создания установочных пакетов (.deb)
+sudo apt install devscripts debhelper dpkg-dev -y
+
+# 5. Безопасное хранение учетных данных и защита от фишинга
+sudo snap install keepassxc
