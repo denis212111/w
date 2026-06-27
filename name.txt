@@ -73,6 +73,7 @@ sudo adduser $USER kvm
 # 5. Обеспечение безопасности
 sudo apt install clamav ufw -y
 sudo ufw --force enable
+clamscan -r /home
 
 
 # ------------------------------------------------------------------------------
