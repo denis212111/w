@@ -26,7 +26,7 @@ sudo systemctl enable --now cups
 sudo apt install timeshift -y
 sudo timeshift --create --comments "Backup" --yes
 
-# 5. Создание группы и пользователя (пароль будет просто 1)
+# 5. Создание группы и пользователя (пароль будет просто daun1daun2)
 sudo groupadd developers
 sudo useradd -m -g developers exam_user
 echo "exam_user:daun1daun2" | sudo chpasswd
