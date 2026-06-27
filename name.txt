@@ -58,7 +58,7 @@ export GDK_SCALE=1
 # Лабораторная работа 1: Разработка мобильных приложений (Android)
 # ------------------------------------------------------------------------------
 # 1. Обновление системы
-sudo apt update
+sudo apt update && sudo apt upgrade -y
 
 # 2. Установка компиляторов
 sudo apt install build-essential clang -y
